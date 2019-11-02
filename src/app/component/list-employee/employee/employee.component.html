@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="">
+
+    <h4> Employee Details</h4>
+    <table class="table col-md-3" *ngFor="let emp of employees">
+
+        <tr>
+            <td> ID :</td>
+            <td>{{emp.id}}</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>{{emp.name}}</td>
+        </tr>
+        <tr>
+            <td>Location:</td>
+            <td>{{emp.location}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{emp.email}}</td>
+        </tr>
+        <tr>
+            <td>Mobile:</td>
+            <td>{{emp.mobile}}</td>
+        </tr>
+    </table>
+    <button class="btn btn-secondary" [routerLink]="['/contextroot/employees']" >Back</button>
+</div>

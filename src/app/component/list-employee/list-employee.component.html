@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div>
+    <div>
+        <label>Filter By : </label>
+        <input type="text" class="col-md-4" id=”filter” [(ngModel)]="filter" (ngModelChange)="onFilter($event)">
+    </div>
+    <div>
+        <label id="count"> Total No. of Employees : {{employees.length}} </label>
+    </div>
+
+    <h4> Employee List</h4>
+
+    <table class="table">
+        <tr>
+            <th>EmpId</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let emp of employees">
+            <td><a class="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                    routerLink="/contextroot/details/{{emp.id}}">
+                    {{emp.id}}
+                </a></td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.location}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.mobile}}</td>
+            <td><button class="btn btn-success" routerLink="/contextroot/editEmployee/{{emp.id}}">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="onDelete(emp.id)" >Delete</button></td>
+        </tr>
+    </table>
+</div>
