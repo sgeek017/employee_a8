@@ -21,14 +21,27 @@ export class EditEmployeeComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.id = params.id;
     });
-    this.employee = this._employeeService.ListEmployeeByID(this.id)[0];
+    // this.employee = this._employeeService.ListEmployeeByID(this.id)[0];
+    this._employeeService.ListEmployeeByID(this.id).subscribe(
+      (res) => {
+        this.employee = res[0];
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
   onSubmit(id: string, emp: IEmployee) {
     console.log(id, emp);
     emp.id = id;
-    this._employeeService.UpdateEmployee(emp.id, emp);
-    this.router.navigate(['contextroot/employees']);
+    // this._employeeService.UpdateEmployee(emp.id, emp);
+    this._employeeService.UpdateEmployee(emp.id, emp).subscribe(
+      (res) => {
+        this.router.navigate(['contextroot/employees']);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
 }

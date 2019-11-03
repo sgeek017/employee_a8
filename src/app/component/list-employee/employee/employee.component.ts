@@ -19,7 +19,10 @@ export class EmployeeComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       this.id = params.id;
     });
-    this.employees = this._employeeService.ListEmployeeByID(this.id);
+    // this.employees = this._employeeService.ListEmployeeByID(this.id);
+    this._employeeService.ListEmployeeByID(this.id).subscribe((res) => {
+      this.employees = res;
+    });
   }
 
 }

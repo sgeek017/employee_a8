@@ -19,8 +19,14 @@ export class AddEmployeeComponent implements OnInit {
   }
   onSubmit(emp: IEmployee) {
     emp.id = uuid().substring(0, 8);
-    this._employeeService.AddEmployee(emp);
-    this.router.navigate(['contextroot/employees']);
+    // this._employeeService.AddEmployee(emp);
+    this._employeeService.AddEmployee(emp).subscribe(
+      (res) => {
+        this.router.navigate(['contextroot/employees']);
+      },
+      (error) => {
+        console.log(error);
+      });
   }
 
 }

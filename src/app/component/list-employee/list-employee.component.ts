@@ -18,9 +18,21 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employees = this._employeeService.ListEmployee();
-    this.employeesLocal = this._employeeService.ListEmployee();
+    this.onLoad();
     this.onSort();
+  }
+
+  onLoad() {
+    this._employeeService.ListEmployee()
+      .subscribe(
+        (res: IEmployee[]) => {
+          this.employees = res;
+          this.employeesLocal = res;
+          this.onFilter(this.filter);
+        },
+        (error) => {
+          console.log(error);
+        });
   }
 
   onSort() {
@@ -31,23 +43,27 @@ export class ListEmployeeComponent implements OnInit {
   onFilter(res) {
     this.employees = this.employeesLocal;
     this.filter = res;
-    if (res !== '') {
+    if (this.filter) {
       this.employees = this.employees.filter((emp: IEmployee) => {
-        return emp.id.toLocaleLowerCase().includes(res.toLocaleLowerCase()) ||
-          emp.name.toLocaleLowerCase().includes(res.toLocaleLowerCase()) ||
-          emp.location.toLocaleLowerCase().includes(res.toLocaleLowerCase()) ||
-          emp.email.toLocaleLowerCase().includes(res.toLocaleLowerCase()) ||
-          emp.mobile.toLocaleLowerCase().includes(res.toLocaleLowerCase());
+        return emp.id.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()) ||
+          emp.name.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()) ||
+          emp.location.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()) ||
+          emp.email.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase()) ||
+          emp.mobile.toLocaleLowerCase().includes(this.filter.toLocaleLowerCase());
       });
     }
     this.onSort();
   }
 
   onDelete(id) {
-    this._employeeService.DeleteEmployee(id);
-    this.employees = this._employeeService.ListEmployee();
-    this.employeesLocal = this._employeeService.ListEmployee();
-    this.onFilter(this.filter);
+    this._employeeService.DeleteEmployee(id).subscribe(
+      (res) => {
+        this.onLoad();
+      },
+      (error) => {
+        console.log(error);
+      });
+
   }
 
 }

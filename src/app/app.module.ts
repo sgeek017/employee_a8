@@ -2,6 +2,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { ListEmployeeComponent } from './component/list-employee/list-employee.c
 import { EmployeeService } from './service/employee.service';
 import { EmployeeComponent } from './component/list-employee/employee/employee.component';
 import { EditEmployeeComponent } from './component/edit-employee/edit-employee.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DbService } from './service/db.service';
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import { EditEmployeeComponent } from './component/edit-employee/edit-employee.c
     BrowserModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(DbService)
   ],
   providers: [EmployeeService, Title],
   bootstrap: [AppComponent]
