@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h1>Employee Management System</h1>\n  <a class=\"\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\" [routerLink]=\"['/contextroot/employees']\">\n    Employee List\n  </a> &nbsp;\n  <a routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\" [routerLink]=\"['/contextroot/addEmployee']\">\n    Add Employee\n  </a>\n  <br/>\n  <br/>\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h1>Employee Management System</h1>\n  <a class=\"\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\" [routerLink]=\"['/employees']\">\n    Employee List\n  </a> &nbsp;\n  <a routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\" [routerLink]=\"['/addEmployee']\">\n    Add Employee\n  </a>\n  <br/>\n  <br/>\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/component/home/home.component.html": 
@@ -83,7 +83,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<div class=\"\">\n\n    <h4> Employee Details</h4>\n    <table class=\"table col-md-3\" *ngFor=\"let emp of employees\">\n\n        <tr>\n            <td> ID :</td>\n            <td>{{emp.id}}</td>\n        </tr>\n        <tr>\n            <td>Name:</td>\n            <td>{{emp.name}}</td>\n        </tr>\n        <tr>\n            <td>Location:</td>\n            <td>{{emp.location}}</td>\n        </tr>\n        <tr>\n            <td>Email:</td>\n            <td>{{emp.email}}</td>\n        </tr>\n        <tr>\n            <td>Mobile:</td>\n            <td>{{emp.mobile}}</td>\n        </tr>\n    </table>\n    <button class=\"btn btn-secondary\" [routerLink]=\"['/contextroot/employees']\" >Back</button>\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<div class=\"\">\n\n    <h4> Employee Details</h4>\n    <table class=\"table col-md-3\" *ngFor=\"let emp of employees\">\n\n        <tr>\n            <td> ID :</td>\n            <td>{{emp.id}}</td>\n        </tr>\n        <tr>\n            <td>Name:</td>\n            <td>{{emp.name}}</td>\n        </tr>\n        <tr>\n            <td>Location:</td>\n            <td>{{emp.location}}</td>\n        </tr>\n        <tr>\n            <td>Email:</td>\n            <td>{{emp.email}}</td>\n        </tr>\n        <tr>\n            <td>Mobile:</td>\n            <td>{{emp.mobile}}</td>\n        </tr>\n    </table>\n    <button class=\"btn btn-secondary\" [routerLink]=\"['/employees']\" >Back</button>\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/component/list-employee/list-employee.component.html": 
@@ -94,7 +94,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<div>\n    <div>\n        <label>Filter By : </label>\n        <input type=\"text\" class=\"col-md-4\" id=”filter” [(ngModel)]=\"filter\" (ngModelChange)=\"onFilter($event)\">\n    </div>\n    <div>\n        <label id=\"count\"> Total No. of Employees : {{employees.length}} </label>\n    </div>\n\n    <h4> Employee List</h4>\n\n    <table class=\"table\">\n        <tr>\n            <th>EmpId</th>\n            <th>Name</th>\n            <th>Location</th>\n            <th>Email</th>\n            <th>Mobile</th>\n            <th>Edit</th>\n            <th>Delete</th>\n        </tr>\n        <tr *ngFor=\"let emp of employees\">\n            <td><a class=\"\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"\n                    routerLink=\"/contextroot/details/{{emp.id}}\">\n                    {{emp.id}}\n                </a></td>\n            <td>{{emp.name}}</td>\n            <td>{{emp.location}}</td>\n            <td>{{emp.email}}</td>\n            <td>{{emp.mobile}}</td>\n            <td><button class=\"btn btn-success\" routerLink=\"/contextroot/editEmployee/{{emp.id}}\">Edit</button></td>\n            <td><button class=\"btn btn-danger\" (click)=\"onDelete(emp.id)\" >Delete</button></td>\n        </tr>\n    </table>\n</div>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<div>\n    <div>\n        <label>Filter By : </label>\n        <input type=\"text\" class=\"col-md-4\" id=”filter” [(ngModel)]=\"filter\" (ngModelChange)=\"onFilter($event)\">\n    </div>\n    <div>\n        <label id=\"count\"> Total No. of Employees : {{employees.length}} </label>\n    </div>\n\n    <h4> Employee List</h4>\n\n    <table class=\"table\">\n        <tr>\n            <th>EmpId</th>\n            <th>Name</th>\n            <th>Location</th>\n            <th>Email</th>\n            <th>Mobile</th>\n            <th>Edit</th>\n            <th>Delete</th>\n        </tr>\n        <tr *ngFor=\"let emp of employees\">\n            <td><a class=\"\" routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\"\n                    routerLink=\"/details/{{emp.id}}\">\n                    {{emp.id}}\n                </a></td>\n            <td>{{emp.name}}</td>\n            <td>{{emp.location}}</td>\n            <td>{{emp.email}}</td>\n            <td>{{emp.mobile}}</td>\n            <td><button class=\"btn btn-success\" routerLink=\"/editEmployee/{{emp.id}}\">Edit</button></td>\n            <td><button class=\"btn btn-danger\" (click)=\"onDelete(emp.id)\" >Delete</button></td>\n        </tr>\n    </table>\n</div>");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -415,12 +415,12 @@
             /* harmony import */ var _component_list_employee_employee_employee_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./component/list-employee/employee/employee.component */ "./src/app/component/list-employee/employee/employee.component.ts");
             /* harmony import */ var _component_edit_employee_edit_employee_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./component/edit-employee/edit-employee.component */ "./src/app/component/edit-employee/edit-employee.component.ts");
             var routes = [
-                { path: 'contextroot', component: _component_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-                { path: 'contextroot/employees', component: _component_list_employee_list_employee_component__WEBPACK_IMPORTED_MODULE_4__["ListEmployeeComponent"] },
-                { path: 'contextroot/addEmployee', component: _component_add_employee_add_employee_component__WEBPACK_IMPORTED_MODULE_5__["AddEmployeeComponent"] },
-                { path: 'contextroot/details/:id', component: _component_list_employee_employee_employee_component__WEBPACK_IMPORTED_MODULE_6__["EmployeeComponent"] },
-                { path: 'contextroot/editEmployee/:id', component: _component_edit_employee_edit_employee_component__WEBPACK_IMPORTED_MODULE_7__["EditEmployeeComponent"] },
-                { path: '**', redirectTo: '/contextroot', pathMatch: 'full' }
+                { path: '', component: _component_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+                { path: 'employees', component: _component_list_employee_list_employee_component__WEBPACK_IMPORTED_MODULE_4__["ListEmployeeComponent"] },
+                { path: 'addEmployee', component: _component_add_employee_add_employee_component__WEBPACK_IMPORTED_MODULE_5__["AddEmployeeComponent"] },
+                { path: 'details/:id', component: _component_list_employee_employee_employee_component__WEBPACK_IMPORTED_MODULE_6__["EmployeeComponent"] },
+                { path: 'editEmployee/:id', component: _component_edit_employee_edit_employee_component__WEBPACK_IMPORTED_MODULE_7__["EditEmployeeComponent"] },
+                { path: '**', redirectTo: '/', pathMatch: 'full' }
             ];
             var AppRoutingModule = /** @class */ (function () {
                 function AppRoutingModule() {
@@ -571,7 +571,7 @@
                     emp.id = Object(uuid__WEBPACK_IMPORTED_MODULE_4__["v4"])().substring(0, 8);
                     // this._employeeService.AddEmployee(emp);
                     this._employeeService.AddEmployee(emp).subscribe(function (res) {
-                        _this.router.navigate(['contextroot/employees']);
+                        _this.router.navigate(['employees']);
                     }, function (error) {
                         console.log(error);
                     });
@@ -640,7 +640,7 @@
                     emp.id = id;
                     // this._employeeService.UpdateEmployee(emp.id, emp);
                     this._employeeService.UpdateEmployee(emp.id, emp).subscribe(function (res) {
-                        _this.router.navigate(['contextroot/employees']);
+                        _this.router.navigate(['employees']);
                     }, function (error) {
                         console.log(error);
                     });
