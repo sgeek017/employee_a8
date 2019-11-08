@@ -14,6 +14,7 @@ import { EmployeeComponent } from './component/list-employee/employee/employee.c
 import { EditEmployeeComponent } from './component/edit-employee/edit-employee.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DbService } from './service/db.service';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DbService } from './service/db.service';
     AddEmployeeComponent,
     ListEmployeeComponent,
     EmployeeComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
