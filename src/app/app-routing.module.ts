@@ -8,14 +8,14 @@ import { EditEmployeeComponent } from './component/edit-employee/edit-employee.c
 
 
 const routes: Routes = [
-  { path: 'contextroot', component: HomeComponent },
-  { path: 'contextroot/employees', component: ListEmployeeComponent },
-  { path: 'contextroot/addEmployee', component: AddEmployeeComponent },
-  { path: 'contextroot/details/:id', component: EmployeeComponent },
-  { path: 'contextroot/editEmployee/:id', component: EditEmployeeComponent },
+  { path: '', component: HomeComponent },
+  { path: 'employees', component: ListEmployeeComponent },
+  { path: 'addEmployee', component: AddEmployeeComponent },
+  { path: 'details/:id', component: EmployeeComponent },
+  { path: 'editEmployee/:id', component: EditEmployeeComponent },
 
 
-  { path: '**', redirectTo: '/contextroot', pathMatch: 'full' }
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({

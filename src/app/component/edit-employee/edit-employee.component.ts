@@ -37,7 +37,7 @@ export class EditEmployeeComponent implements OnInit {
     // this._employeeService.UpdateEmployee(emp.id, emp);
     this._employeeService.UpdateEmployee(emp.id, emp).subscribe(
       (res) => {
-        this.router.navigate(['contextroot/employees']);
+        this.router.navigate(['employees']);
       },
       (error) => {
         console.log(error);

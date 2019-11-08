@@ -22,14 +22,14 @@
         </tr>
         <tr *ngFor="let emp of employees">
             <td><a class="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
-                    routerLink="/contextroot/details/{{emp.id}}">
+                    routerLink="/details/{{emp.id}}">
                     {{emp.id}}
                 </a></td>
             <td>{{emp.name}}</td>
             <td>{{emp.location}}</td>
             <td>{{emp.email}}</td>
             <td>{{emp.mobile}}</td>
-            <td><button class="btn btn-success" routerLink="/contextroot/editEmployee/{{emp.id}}">Edit</button></td>
+            <td><button class="btn btn-success" routerLink="/editEmployee/{{emp.id}}">Edit</button></td>
             <td><button class="btn btn-danger" (click)="onDelete(emp.id)" >Delete</button></td>
         </tr>
     </table>

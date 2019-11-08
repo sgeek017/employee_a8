@@ -22,7 +22,7 @@ export class AddEmployeeComponent implements OnInit {
     // this._employeeService.AddEmployee(emp);
     this._employeeService.AddEmployee(emp).subscribe(
       (res) => {
-        this.router.navigate(['contextroot/employees']);
+        this.router.navigate(['employees']);
       },
       (error) => {
         console.log(error);
